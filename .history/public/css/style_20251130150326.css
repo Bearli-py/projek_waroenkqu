@@ -1,0 +1,1975 @@
+/*
+==============================================
+WAROENK QU - STYLE.CSS
+Website Warung Makan Tradisional
+==============================================
+File ini berisi semua styling untuk website Waroenk Qu.
+Warna utama: Merah #B33939, Kuning #F2C94C, Background #FAF3E0
+Font: Playfair Display (heading), Poppins (body text)
+Kalau file ini dihapus: Website jadi berantakan tanpa style apapun
+*/
+
+
+/* 
+==============================================
+1. RESET & BASE STYLES
+==============================================
+Fungsi: Reset default browser style biar konsisten di semua browser
+Elemen: Semua elemen (*), body, html
+Kalau dihapus: Tiap browser punya style default beda-beda (berantakan)
+*/
+
+* {
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    /* box-sizing: border-box = padding & border masuk ke dalam width/height
+       Jadi kalau width 300px + padding 20px = tetap 300px total */
+}
+
+html {
+    scroll-behavior: smooth;
+    /* scroll-behavior: smooth = scroll halus saat klik anchor link
+       Kalau dihapus: Scroll jadi langsung lompat (gak smooth) */
+}
+
+body {
+    font-family: 'Poppins', sans-serif !important;
+    /* Font default untuk seluruh body text */
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: #fff;
+    font-size: 16px;
+    line-height: 1.6;
+    /* line-height 1.6 = jarak antar baris text (enak dibaca) */
+    color: #333;
+    /* Warna text default hitam pekat */
+    background-color: #FAF3E0;
+    /* Background cream sesuai desain */
+    overflow-x: hidden;
+    /* overflow-x: hidden = kalau ada elemen keluar horizontal, disembunyikan
+       Mencegah scroll horizontal yang gak diinginkan */
+}
+
+img {
+    max-width: 100%;
+    /* max-width 100% = gambar gak boleh lebih lebar dari container-nya
+       Bikin gambar responsive otomatis */
+    height: auto;
+    /* height auto = tinggi menyesuaikan proporsi asli gambar */
+    display: block;
+    /* display block = gambar jadi block element (gak ada space di bawah) */
+}
+
+a {
+    text-decoration: none;
+    /* Hilangkan garis bawah link */
+    color: inherit;
+    /* Warna link sama kayak parent element-nya */
+    transition: all 0.3s ease;
+    /* Transisi smooth 0.3 detik untuk semua perubahan (hover, dll) */
+}
+
+a:hover {
+    color: #B33939;
+    /* Saat hover, link jadi merah */
+}
+
+ul, ol {
+    list-style: none;
+    /* Hilangkan bullet/nomor default list */
+}
+
+
+/* 
+==============================================
+2. TYPOGRAPHY (TIPOGRAFI)
+==============================================
+Fungsi: Atur font dan ukuran untuk heading dan text
+Elemen: h1-h6, p, dan class text utilities
+Kalau dihapus: Semua text jadi ukuran default browser (gak konsisten)
+*/
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    /* Font Playfair Display untuk semua heading (kesan elegan) */
+    font-weight: 700;
+    line-height: 1.3;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 48px;
+    /* Heading 1 paling besar (48px) */
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 24px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+h6 {
+    font-size: 18px;
+}
+
+p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    /* line-height lebih besar biar paragraf enak dibaca */
+}
+
+.text-center {
+    text-align: center;
+    /* Utility class buat text center */
+}
+
+.text-red {
+    color: #B33939;
+    /* Text warna merah */
+}
+
+
+/* 
+==============================================
+3. CONTAINER & LAYOUT UTILITIES
+==============================================
+Fungsi: Pembatas lebar konten dan utility layout
+Elemen: .container untuk max-width dan center content
+Kalau dihapus: Konten melebar full layar (susah dibaca di desktop besar)
+*/
+
+.container {
+    max-width: 1200px;
+    /* Lebar maksimal 1200px (gak terlalu lebar di layar besar) */
+    margin: 0 auto;
+    /* margin 0 auto = center horizontal otomatis */
+    padding: 0 20px;
+    /* Padding kiri kanan 20px biar gak nempel tepi layar */
+}
+
+
+/* 
+==============================================
+4. HEADER & NAVBAR
+==============================================
+Fungsi: Styling untuk header (logo + menu navigasi)
+Elemen: header, logo, navbar, menu links
+Kalau dihapus: Header jadi plain tanpa styling
+*/
+
+.header {
+    background-color: #fff;
+    /* Background putih bersih */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Shadow halus di bawah header (efek kedalaman) */
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    /* Nempel di posisi paling atas */
+    z-index: 9999 !important;
+    /* z-index tinggi biar header selalu di atas elemen lain */
+    padding: 15px 0;
+}
+
+.header-content {
+    display: flex;
+    /* Flexbox buat atur logo dan menu sejajar horizontal */
+    justify-content: space-between;
+    /* Space between = logo di kiri, menu di kanan */
+    align-items: center;
+    /* Align center = vertikal tengah */
+}
+
+.logo {
+    height: 60px;
+    /* Tinggi logo 60px (lebar otomatis menyesuaikan) */
+}
+
+.navbar {
+    display: flex;
+}
+
+.nav-list {
+    display: flex;
+    /* Flexbox buat menu horizontal */
+    gap: 35px;
+    /* Jarak antar menu item 35px */
+}
+
+.nav-link {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    padding: 8px 0;
+    position: relative;
+    /* position relative buat animasi underline */
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #B33939;
+    /* Hover atau active = warna merah */
+}
+
+.nav-link::after {
+    content: '';
+    /* Buat garis bawah animasi */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    /* Default width 0 (gak keliatan) */
+    height: 2px;
+    background-color: #B33939;
+    transition: width 0.3s ease;
+    /* Transisi smooth saat hover */
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    /* Saat hover/active, garis bawah muncul full width */
+}
+
+/* MOBILE MENU TOGGLE (hamburger icon) */
+.mobile-menu-toggle {
+    display: none;
+    /* Default hidden (cuma muncul di mobile) */
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-menu-toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    /* 3 span = 3 garis horizontal (icon hamburger) */
+}
+
+
+/* 
+==============================================
+5. FOOTER
+==============================================
+Fungsi: Styling footer dengan 4 kolom info
+Elemen: footer, footer columns, social media, copyright
+Kalau dihapus: Footer jadi plain tanpa styling
+*/
+
+.footer {
+    background-color: #B33939;
+    /* Background merah sesuai desain */
+    color: #fff;
+    /* Text putih */
+    padding: 40px 0 0 0;
+    margin-top: 0px;
+    width: 100%;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Grid 4 kolom sama rata */
+    gap: 40px;
+    /* Jarak antar kolom 40px */
+    margin-bottom: 30px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    /* Susun konten kolom horizontal */
+}
+
+.footer-logo {
+    height: 50px;
+    margin-bottom: 15px;
+}
+
+.footer-title {
+    font-family: 'Poppins', sans-serif !important;
+    /* Font Poppins, bukan Playfair Display
+       !important = override setting sebelumnya
+       Kalau dihapus: Font jadi Playfair (gak konsisten) */
+    font-size: 18px;
+    /* Ukuran 18px (sedang) */
+    font-weight: 600;
+    /* Semi-bold biar judul jelas */
+    margin-bottom: 20px;
+    /* Jarak 20px dari judul ke konten bawahnya */
+    color: #fff;
+}
+
+.footer-text {
+    font-family: 'Poppins', sans-serif !important;
+    /* Font Poppins konsisten */
+    font-size: 14px;
+    line-height: 1.6;
+    color: #fff;
+    opacity: 0.9;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    /* Hover = opacity full (lebih terang) */
+}
+
+/* 
+SOSIAL MEDIA - TANPA BACKGROUND (REVISI)
+Icon sosmed cuma icon aja, gak pakai background bulat
+*/
+.social-media-new {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-link-new {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.social-link-new img {
+    width: 32px;
+    height: 32px;
+    transition: all 0.3s ease;
+}
+
+.social-link-new:hover img {
+    transform: scale(1.15);
+    filter: brightness(1.2);
+}
+
+/* COPYRIGHT DI DALAM KOLOM IKUTI KAMI */
+.footer-copyright {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #fff;
+    margin-top: 20px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+
+/* 
+FOOTER INFO - ICON KECIL & TANPA ICON (REVISI)
+*/
+.footer-info-new {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-item-new {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-icon-small {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.info-item-new a,
+.info-item-new span {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.info-item-new a:hover {
+    color: #F2C94C;
+}
+
+.footer-text-simple {
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #fff;
+    margin: 0;
+}
+
+.footer-text-simple strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    /* Background lebih gelap sedikit */
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* 
+==============================================
+6. PAGE HEADER (JUDUL HALAMAN)
+==============================================
+Fungsi: Styling untuk header di setiap halaman (judul + subjudul)
+Elemen: .page-header, .page-title, .page-subtitle
+Kalau dihapus: Header halaman jadi plain
+*/
+
+.page-header {
+    background-color: #fff;
+    padding: 60px 0 20px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 42px;
+    color: #B33939;
+    /* Warna merah */
+    margin-bottom: 15px;
+}
+
+.page-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 10px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Center horizontal */
+}
+
+
+/* 
+==============================================
+7. HERO SECTION (BANNER UTAMA)
+==============================================
+Fungsi: Styling hero banner dengan background image
+Elemen: .hero, overlay, hero-content, buttons
+Kalau dihapus: Hero jadi tanpa background dan layout berantakan
+*/
+
+.hero {
+    background-image: url('../images/warung/dalam2.png');
+    /* Background foto suasana warung */
+    background-size: cover;
+    /* cover = gambar menutupi seluruh area */
+    background-position: center;
+    /* Gambar di tengah */
+    background-repeat: no-repeat;
+    min-height: 600px;
+    /* Tinggi minimal 600px */
+    display: flex;
+    align-items: center;
+    /* Content vertikal tengah */
+    justify-content: flex-start;
+    position: relative;
+    /* Buat overlay */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Hitam semi-transparan (opacity 50%) */
+    /* Fungsi: Bikin text lebih jelas dibaca di atas foto */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    /* z-index lebih tinggi dari overlay (muncul di atas) */
+    text-align: left;
+    color: #fff;
+    /* Text putih */
+    max-width: 700px;
+    padding: 0 20px;
+    margin: 0;
+}
+
+/* 
+HERO TEXT KIRI (REVISI)
+Judul dan tagline rata kiri, bukan center
+*/
+.hero-content.text-left {
+    text-align: left !important;
+    /* !important = override text-center
+       Kalau dihapus: Text tetap center */
+    max-width: 700px;
+    margin-left: 0;
+    /* Rata kiri, bukan center */
+}
+
+.hero-content.text-left .hero-buttons {
+    justify-content: flex-start;
+    /* Button rata kiri juga */
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    /* Shadow halus biar text lebih jelas */
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    margin-bottom: 35px;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    /* Center horizontal */
+    flex-wrap: wrap;
+    /* Kalau layar kecil, tombol turun kebawah */
+}
+
+
+/* 
+==============================================
+8. BUTTONS (TOMBOL)
+==============================================
+Fungsi: Styling untuk semua tombol di website
+Elemen: .btn, .btn-primary, .btn-secondary
+Kalau dihapus: Tombol jadi default browser (jelek)
+*/
+
+.btn {
+    display: inline-block;
+    padding: 14px 35px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 50px;
+    /* Border radius besar = tombol bulat lonjong */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    /* Border transparan default (buat btn-secondary nanti) */
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #B33939;
+    /* Background merah */
+    color: #fff;
+    border-color: #B33939;
+}
+
+.btn-primary:hover {
+    background-color: #8f2e2e;
+    /* Hover = merah lebih gelap */
+    transform: translateY(-2px);
+    /* Naik 2px saat hover */
+    box-shadow: 0 5px 15px rgba(179, 57, 57, 0.3);
+    /* Shadow muncul saat hover */
+}
+
+.btn-secondary {
+    background-color: transparent;
+    /* Background transparan */
+    color: #fff;
+    border-color: #fff;
+    /* Border putih */
+}
+
+.btn-secondary:hover {
+    background-color: #fff;
+    color: #B33939;
+    /* Hover = background putih, text merah */
+}
+
+/* 
+BUTTON HOVER KHUSUS (REVISI)
+Button dengan efek hover kuning dan blur
+*/
+.btn-yellow-hover:hover {
+    background-color: #F2C94C !important;
+    /* Kuning */
+    color: #000 !important;
+    /* Hitam */
+    border-color: #F2C94C !important;
+}
+
+.btn-blur-hover:hover {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    /* Putih semi-transparan */
+    backdrop-filter: blur(10px);
+    /* Efek blur background */
+    -webkit-backdrop-filter: blur(10px);
+    /* Untuk Safari */
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+
+/* 
+==============================================
+9. SECTION UTILITIES
+==============================================
+Fungsi: Utility class untuk section (padding, margin, dll)
+Elemen: section-title, section-subtitle, section-description
+Kalau dihapus: Section jadi terlalu rapat atau gak ada spacing
+*/
+
+section {
+    padding: 80px 0;
+    /* Padding atas bawah 80px untuk breathing space */
+}
+
+.section-title {
+    font-size: 38px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+
+/* 
+==============================================
+10. FEATURED MENU (MENU ANDALAN - BERANDA) - REVISI
+==============================================
+Fungsi: Styling untuk section Menu Andalan di halaman beranda
+REVISI: Nama dan harga DI LUAR kotak, kotak cuma berisi foto
+Kalau dihapus: Menu andalan jadi berantakan
+*/
+
+.featured-menu {
+    background-color: #fff;
+}
+
+.menu-grid-featured {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Grid 4 kolom sama rata */
+    gap: 30px;
+}
+
+/* 
+CARD MENU BARU (REVISI)
+Layout baru: foto di dalam kotak, nama & harga di luar
+*/
+.menu-card-featured-new {
+    text-align: center;
+}
+
+.menu-image-box {
+    background-color: #fff;
+    border: none;  /* ← HAPUS border atau ganti jadi "none" */
+    border-radius: 15px;
+    overflow: hidden;
+    height: 250px;
+    transition: all 0.3s ease;
+}
+
+.menu-card-featured-new:hover .menu-image-box {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+}
+
+.menu-image-box .menu-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu-card-featured-new:hover .menu-image-box .menu-image {
+    transform: scale(1.1);
+}
+
+.menu-name-outside {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.menu-price-outside {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #B33939;
+    margin: 0;
+}
+
+
+/* 
+==============================================
+11. ABOUT PREVIEW (CERITA DI BALIK DAPUR) - REVISI
+==============================================
+Fungsi: Styling untuk section Tentang di beranda (2 kolom)
+REVISI: Background warna beda (#FFF8E1)
+Kalau dihapus: Layout jadi susun kebawah atau berantakan
+*/
+
+.about-preview-new {
+    background-color: #FFF8E1;
+    /* Warna kuning muda (beda dari #FAF3E0) */
+    padding: 80px 0;
+}
+
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    /* Vertikal tengah */
+    gap: 60px;
+    /* Jarak antar kolom 60px */
+}
+
+.about-text {
+    flex: 1;
+    /* Flex 1 = ambil 50% lebar */
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+/* 
+==============================================
+12. VALUES (APA YANG KAMI YAKINI)
+==============================================
+Fungsi: Styling untuk 3 kotak value di beranda
+Elemen: Grid 3 kolom, icon, judul, deskripsi, hover border
+Kalau dihapus: Kotak value jadi berantakan
+*/
+
+.values,
+.values-section {
+    background-color: #fff;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Grid 3 kolom sama rata */
+    gap: 40px;
+}
+
+.value-card {
+    background-color: #fff;
+    padding: 40px 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px); /* Naik 5px saat hover */
+    box-shadow: 0 8px 25px rgba(179, 57, 57, 0.2);
+}
+
+.value-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+}
+
+.value-title {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.value-description {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.7;
+}
+
+
+/* 
+==============================================
+13. TESTIMONIALS (TESTIMONI)
+==============================================
+Fungsi: Styling untuk kotak testimoni
+Elemen: Grid testimoni, foto user, nama, text, hover zoom
+Kalau dihapus: Testimoni jadi berantakan
+*/
+
+.testimonials-preview,
+.testimonials-section {
+    background-color: #FAF3E0;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Grid 3 kolom */
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: scale(1.05);
+    /* Zoom 105% saat hover (natural) */
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.testimonial-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    /* Foto bulat */
+    object-fit: cover;
+}
+
+.testimonial-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.testimonial-role {
+    font-size: 13px;
+    color: #999;
+}
+
+.testimonial-text {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555;
+    font-style: italic;
+}
+
+
+/* 
+==============================================
+14. FILTER BUTTONS (TOMBOL KATEGORI)
+==============================================
+Fungsi: Styling untuk tombol filter di halaman Galeri & Menu
+Elemen: Tombol dengan icon, hover, active state
+Kalau dihapus: Tombol filter jadi plain
+*/
+
+/* Container button */
+.filter-buttons-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn-new {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    /* Padding kecil: 10px atas-bawah, 24px kiri-kanan */
+    border: none;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    /* Font size kecil */
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon KECIL di dalam button */
+.filter-icon-new {
+    width: 20px !important;
+    height: 20px !important;
+    /* !important biar gak ke-override */
+    max-width: 20px !important;
+    max-height: 20px !important;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    /* Bikin icon jadi putih */
+    flex-shrink: 0;
+    /* Icon gak boleh mengecil */
+}
+
+/* Button KUNING */
+.filter-btn-new.yellow {
+    background-color: #F2C94C;
+}
+
+.filter-btn-new.yellow:hover {
+    background-color: #e6ba3a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(242, 201, 76, 0.3);
+}
+
+/* Button MERAH */
+.filter-btn-new.red {
+    background-color: #B33939;
+}
+
+.filter-btn-new.red:hover {
+    background-color: #9a2f2f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(179, 57, 57, 0.3);
+}
+
+/* Button ACTIVE */
+.filter-btn-new.active {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .filter-btn-new {
+        padding: 9px 20px;
+        font-size: 13px;
+    }
+    
+    .filter-icon-new {
+        width: 18px !important;
+        height: 18px !important;
+    }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 768px) {
+    .filter-buttons-new {
+        gap: 12px;
+    }
+
+    .filter-btn-new {
+        padding: 10px 24px;
+        /* Padding lebih kecil di tablet */
+        font-size: 14px;
+    }
+    
+    .filter-icon-new {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 480px) {
+    .filter-btn-new {
+        padding: 9px 20px;
+        /* Padding lebih kecil lagi di mobile */
+        font-size: 13px;
+    }
+
+    .filter-icon-new {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* 
+==============================================
+FILTER BUTTONS - HALAMAN MENU
+Button kategori SAMA dengan Galeri (kuning-merah warna-warni)
+==============================================
+*/
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 0;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 10px 24px !important;
+    border: none !important;
+    border-radius: 50px !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #fff !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.filter-icon {
+    width: 20px !important;
+    height: 20px !important;
+    max-width: 20px !important;
+    max-height: 20px !important;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) !important;
+    flex-shrink: 0 !important;
+}
+
+/* Button KUNING */
+.filter-btn.yellow {
+    background-color: #F2C94C !important;
+}
+
+.filter-btn.yellow:hover {
+    background-color: #e6ba3a !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(242, 201, 76, 0.3) !important;
+}
+
+/* Button MERAH */
+.filter-btn.red {
+    background-color: #B33939 !important;
+}
+
+.filter-btn.red:hover {
+    background-color: #9a2f2f !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(179, 57, 57, 0.3) !important;
+}
+
+/* Button ACTIVE */
+.filter-btn.active {
+    transform: scale(1.05) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 
+==============================================
+15. GALLERY (GALERI FOTO)
+==============================================
+Fungsi: Styling untuk grid foto galeri
+Elemen: Grid 4 kolom, foto, overlay, caption, hover zoom
+Kalau dihapus: Galeri jadi berantakan
+*/
+
+.gallery-section {
+    background-color: #fff;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Grid 4 kolom */
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.gallery-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.15);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Saat hover, overlay muncul */
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Caption di tengah overlay */
+.gallery-caption {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-align: center;
+    padding: 12px 20px;
+    line-height: 1.5;
+    border-radius: 8px;
+    max-width: 90%;
+}
+
+
+/* 
+==============================================
+16. MENU PAGE (HALAMAN MENU)
+==============================================
+Fungsi: Styling untuk card menu di halaman Menu
+Elemen: Grid 3 kolom, foto, info, button, hover effect
+Kalau dihapus: Menu page jadi berantakan
+*/
+
+.menu-section {
+    background-color: #fff;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* Grid 4 kolom */
+    gap: 25px;
+    margin-top: 30px !important;
+}
+
+.menu-card {
+    background-color: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    disply: flex;
+    flex-direction: column;
+}
+
+.menu-card:hover {
+    transform: scale(1.00); /* zoom 105% saat hover */
+    box-shadow: 0 7px 7px rgba(71, 63, 63, 0.8);
+}
+
+.menu-card-image {
+    overflow: hidden;
+    height: 220px;
+    border-radius: 15px 15px 0 0;  /* Rounded cuma atas */
+}
+
+.menu-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.menu-card:hover .menu-card-image img {
+    transform: scale(1.1);
+}
+
+/* KONTEN (NAMA, DESKRIPSI, HARGA, BUTTON) */
+.menu-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* NAMA MENU */
+.menu-card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.menu-card-price {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #B33939;
+    margin-bottom: 15px;
+}
+
+.menu-card-description {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    flex-grow: 1;  /* Ambil space tersisa */
+}
+
+/* BUTTON DETAIL */
+.menu-card-btn {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 2px solid #B33939;
+    border-radius: 25px;
+    font-family: 'Poppins', sans-serif;
+    color: #B33939;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.menu-card:hover .menu-card-btn {
+    background-color: #B33939;
+    color: #fff;
+}
+
+/* RESPONSIVE - TABLET */
+@media (max-width: 992px) {
+    .menu-grid {
+        grid-template-columns: repeat(3, 1fr);  /* 3 kolom di tablet */
+    }
+}
+
+/* RESPONSIVE - MOBILE */
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);  /* 2 kolom di mobile */
+        gap: 20px;
+    }
+    
+    .menu-card-image {
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-grid {
+        grid-template-columns: 1fr;  /* 1 kolom di HP kecil */
+    }
+}
+
+/* 
+==============================================
+17. MENU MODAL (POPUP DETAIL MENU)
+==============================================
+Fungsi: Styling untuk popup detail menu
+Elemen: Overlay, modal box, foto, info, button close
+Kalau dihapus: Popup jadi berantakan
+*/
+
+.menu-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-modal.active {
+    display: flex;
+}
+
+.menu-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.menu-modal-content {
+    position: relative;
+    z-index: 10000;
+    background-color: #fff;
+    max-width: 600px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.menu-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #B33939;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.menu-modal-close:hover {
+    background-color: #8f2e2e;
+    transform: rotate(90deg);
+}
+
+.menu-modal-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.menu-modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.menu-modal-body {
+    padding: 30px;
+}
+
+/* 
+==============================================
+MENU MODAL - POPUP DETAIL MENU
+Semua text pakai Poppins (bukan Playfair Display)
+==============================================
+*/
+
+.menu-modal-title {
+    font-family: 'Poppins', sans-serif !important;  /* ✅ Poppins */
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.menu-modal-price {
+    font-family: 'Poppins', sans-serif !important;  /* ✅ Poppins */
+    font-size: 24px;
+    font-weight: 700;
+    color: #B33939;
+    margin-bottom: 20px;
+}
+
+.menu-modal-description {
+    font-family: 'Poppins', sans-serif !important;  /* ✅ Poppins */
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.menu-modal-info-title {
+    font-family: 'Poppins', sans-serif !important;  /* ✅ Poppins */
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.menu-modal-info-list li {
+    font-family: 'Poppins', sans-serif !important;  /* ✅ Poppins */
+    font-size: 15px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 8px;
+}
+
+/* 
+==============================================
+18. CONTACT BOXES (KOTAK KONTAK)
+==============================================
+Fungsi: Styling untuk 4 kotak info kontak
+Elemen: Grid 4 kotak, icon, title, detail hover
+Kalau dihapus: Kotak kontak jadi berantakan
+*/
+
+.contact-info-section {
+    background-color: #fff;
+    padding: 60px 0;
+}
+
+.contact-boxes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 50px;
+}
+
+/* CARD KONTAK */
+.contact-box {
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 40px 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.contact-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ICON KONTAK */
+.contact-box-icon {
+    margin-bottom: 15px;
+}
+
+.contact-box-icon img {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto;
+}
+
+/* JUDUL CARD (Alamat, Telepon, dll) */
+.contact-box-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    color: #B33939;
+    margin-bottom: 0px;
+    transition: all 0.3s ease;
+}
+
+/* DETAIL INFO (TERSEMBUNYI DEFAULT) */
+.contact-box-detail {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    margin-top: 0;
+}
+
+/* HOVER: DETAIL MUNCUL */
+.contact-box:hover .contact-box-detail {
+    opacity: 1;
+    max-height: 300px;
+    margin-top: 15px;
+}
+
+/* LINK DI DETAIL */
+.contact-box-detail a {
+    color: #B33939;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.contact-box-detail a:hover {
+    color: #8f2e2e;
+}
+
+/* Text kecil (note) */
+.contact-note {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Responsive Tablet */
+@media (max-width: 992px) {
+    .contact-boxes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .contact-boxes {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* 
+==============================================
+19. GOOGLE MAPS
+==============================================
+Fungsi: Styling untuk embed Google Maps
+Elemen: Map wrapper dengan border-radius
+Kalau dihapus: Maps jadi tanpa styling
+*/
+
+.map-section {
+    background-color: #FAF3E0;
+    padding: 80px 0;
+}
+
+.map-wrapper {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    margin-top: 40px;
+}
+
+.map-wrapper iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+
+/* 
+==============================================
+20. VISION MISSION (VISI MISI)
+==============================================
+Fungsi: Styling untuk kotak Visi & Misi
+Elemen: Grid 2 kolom, hover effect
+Kalau dihapus: Visi misi jadi berantakan
+*/
+
+.vision-mission-section {
+    background-color: #FAF3E0;
+}
+
+.vision-mission-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.vision-mission-card {
+    background-color: #fff;
+    padding: 40px 35px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.vision-mission-card:hover {
+    transform: translateY(-5px);
+    border-color: #B33939;
+}
+
+.vm-title {
+    font-size: 32px;
+    color: #B33939;
+    margin-bottom: 20px;
+}
+
+.vm-text {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.8;
+}
+
+/* 
+==============================================
+RATING SUMMARY BOX - HALAMAN TESTIMONI
+Box rating besar dengan bar chart
+==============================================
+*/
+
+.rating-summary-box {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 40px 50px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 50px;
+}
+
+/* KIRI: Rating besar + bintang */
+.rating-left {
+    text-align: center;
+    min-width: 200px;
+}
+
+.rating-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 72px;
+    font-weight: 700;
+    color: #333;
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.rating-stars {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+.star {
+    font-size: 32px;
+    color: #ddd;
+}
+
+.star.filled {
+    color: #F2C94C;  /* Kuning */
+}
+
+.star.half {
+    background: linear-gradient(90deg, #F2C94C 50%, #ddd 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.rating-count {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* KANAN: Bar chart */
+.rating-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.rating-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.rating-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    min-width: 15px;
+}
+
+.rating-bar-container {
+    flex: 1;
+    height: 12px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.rating-bar-fill {
+    height: 100%;
+    background-color: #F2C94C;  /* Kuning */
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.rating-percentage {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    min-width: 45px;
+    text-align: right;
+}
+
+/* Responsive Tablet */
+@media (max-width: 768px) {
+    .rating-summary-box {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 25px;
+    }
+    
+    .rating-number {
+        font-size: 56px;
+    }
+    
+    .star {
+        font-size: 24px;
+    }
+}
+
+/* 
+==============================================
+21. RESPONSIVE - TABLET (max-width: 992px)
+==============================================
+Fungsi: Atur layout untuk layar tablet (768px - 992px)
+Elemen: Grid jadi 2 kolom, font lebih kecil, padding lebih kecil
+Kalau dihapus: Layout berantakan di tablet
+*/
+
+@media (max-width: 992px) {
+    h1 { font-size: 38px; }
+    h2 { font-size: 32px; }
+    .hero-title { font-size: 42px; }
+    
+    .menu-grid-featured,
+    .gallery-grid,
+    .contact-boxes {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .menu-grid,
+    .values-grid,
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+}
+
+
+/* 
+==============================================
+22. RESPONSIVE - MOBILE (max-width: 768px)
+==============================================
+Fungsi: Atur layout untuk layar mobile (dibawah 768px)
+Elemen: Grid jadi 1 kolom, navbar jadi hamburger menu, font lebih kecil
+Kalau dihapus: Layout berantakan di mobile
+BAGIAN INI YANG PALING PENTING UNTUK RESPONSIVITAS!
+*/
+
+@media (max-width: 768px) {
+    h1 { font-size: 32px; }
+    h2 { font-size: 28px; }
+    .hero-title { font-size: 36px; }
+    .page-title { font-size: 32px; }
+    
+    .mobile-menu-toggle {
+        display: flex;
+    }
+    
+    .navbar {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 80px);
+        background-color: #fff;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        padding: 30px 20px;
+    }
+    
+    .navbar.active {
+        right: 0;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .menu-grid-featured,
+    .gallery-grid,
+    .menu-grid,
+    .values-grid,
+    .testimonials-grid,
+    .vision-mission-grid,
+    .contact-boxes,
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .about-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .hero {
+        min-height: 450px;
+    }
+    
+    .hero-content.text-left {
+        max-width: 100%;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    section {
+        padding: 50px 0;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .menu-grid-featured {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .menu-image-box {
+        height: 180px;
+    }
+    
+    .menu-name-outside {
+        font-size: 16px;
+    }
+    
+    .menu-price-outside {
+        font-size: 14px;
+    }
+    
+    .social-link-new img {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .info-icon-small {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+
+/* 
+==============================================
+23. RESPONSIVE - MOBILE SMALL (max-width: 480px)
+==============================================
+Fungsi: Atur layout untuk layar mobile kecil (iPhone SE, dll)
+Elemen: Font lebih kecil lagi, padding lebih kecil
+Kalau dihapus: Layout masih oke tapi kurang optimal di HP kecil
+*/
+
+@media (max-width: 480px) {
+    h1 { font-size: 28px; }
+    h2 { font-size: 24px; }
+    .hero-title { font-size: 30px; }
+    .page-title { font-size: 28px; }
+    
+    .filter-buttons {
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        flex: 1 1 45%;
+        justify-content: center;
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+    
+    .contact-boxes {
+        gap: 20px;
+    }
+    
+    .menu-grid-featured {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 
+==============================================
+FIX MASALAH HERO TEXT & LOGO
+==============================================
+*/
+
+/* FIX 1: HERO TEXT KIRI - FORCE ALIGNMENT */
+.hero-content.text-left {
+    text-align: left !important;
+    max-width: 700px !important;
+    margin-left: 0 !important;
+    margin-right: auto;
+}
+
+/* Pastikan button juga rata kiri */
+.hero-content.text-left .hero-buttons {
+    justify-content: flex-start !important;
+}

@@ -1,0 +1,60 @@
+/* 
+==============================================
+FIX MASALAH HERO TEXT & LOGO
+==============================================
+*/
+
+/* FIX 1: HERO TEXT KIRI - FORCE ALIGNMENT */
+.hero-content.text-left {
+    text-align: left !important;
+    max-width: 700px !important;
+    margin-left: 0 !important;
+    margin-right: auto;
+}
+
+/* Pastikan button juga rata kiri */
+.hero-content.text-left .hero-buttons {
+    justify-content: flex-start !important;
+}
+
+/* FIX 2: LOGO HEADER - CEK PATH */
+.logo-link {
+    display: block;
+    line-height: 0;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    display: block;
+}
+
+/* FIX 3: FOOTER COPYRIGHT - DI BAWAH ICON SOSMED SAJA */
+.footer-bottom {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 30px;
+    grid-column: 1 / 2; /* Hanya di kolom 1 (Ikuti Kami) */
+}
+
+/* Override footer grid untuk copyright */
+@media (min-width: 769px) {
+    .footer {
+        position: relative;
+    }
+    
+    .footer-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 25%; /* Lebar 1 kolom dari 4 kolom */
+        margin: 0;
+        padding: 20px;
+    }
+    
+    .footer-content {
+        padding-bottom: 80px; /* Ruang untuk copyright */
+    }
+}
